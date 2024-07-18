@@ -1,0 +1,20 @@
+
+<div class="w-4/5 p-8 mx-auto bg-slate-50 mt-16 h-4/5 flex justify-center items-center relative">
+    <div class="absolute top-2 left-2">
+        <button mat-raised-button (click)="backToMenu()" >Back</button>
+    </div>
+    @if(userVarified){
+        <h1> Current Balance: {{currentBalance}} Rs  </h1>
+    }
+    @else {
+            <div class="flex gap-x-8 justify-center items-center">
+
+                <mat-form-field class="w-fit h-fit" >
+                  <mat-label>Security Pin</mat-label>
+                  <input matInput type="password" [(ngModel)]="pin" placeholder="Enter Pin " >
+                </mat-form-field>
+                <button class="w-fit" type="submit" (click)="verifyUser()" mat-raised-button>submit</button>
+            </div>
+          
+    }
+</div>

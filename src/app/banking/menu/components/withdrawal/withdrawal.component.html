@@ -1,0 +1,36 @@
+
+<div class="w-4/5 p-8 mx-auto bg-slate-50 mt-16 h-4/5 flex justify-center items-center relative">
+    <div class="absolute top-2 left-2">
+        <button mat-raised-button (click)="backToMenu()" >Back</button>
+    </div>
+   
+    @if(userVarified){
+        <div class="flex gap-x-8 justify-center items-center">
+            @if (widthrawalStatus=='pending'  ) {
+                <mat-form-field class="w-fit h-fit" >
+                  <mat-label>Enter withdrawal amount</mat-label>
+                  <input matInput type="number" [(ngModel)]="amount" placeholder="Enter Amount " >
+                </mat-form-field>
+                <button class="w-fit" type="submit" (click)="widthrawAmount()" mat-raised-button>submit</button>
+            }
+            @else if(widthrawalStatus == 'success') {
+                <h1>Transaction SuccessFull</h1>
+            }
+            @else {
+                <h1>Error not have enough balance</h1>
+            }
+
+        </div>
+    }
+    @else {
+            <div class="flex gap-x-8 justify-center items-center">
+
+                <mat-form-field class="w-fit h-fit" >
+                  <mat-label>Security Pin</mat-label>
+                  <input matInput type="password" [(ngModel)]="pin" placeholder="Enter Pin " >
+                </mat-form-field>
+                <button class="w-fit" type="submit" (click)="verifyUser()" mat-raised-button>submit</button>
+            </div>
+          
+    }
+</div>
